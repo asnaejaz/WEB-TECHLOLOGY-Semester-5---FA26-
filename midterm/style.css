@@ -1,0 +1,480 @@
+/* ===== Color Variables ===== */
+:root {
+  --maroon: #711717;
+  --maroon-dark: #4d1010;
+  --accent: #c07854;
+  --sand: #b39e86;
+  --cream: #fff8f0;
+  --text: #2e2424;
+  --text-soft: #625454;
+  --line: #eadbd2;
+
+  /* Filter accent: Hue 154 degrees */
+  --filter-accent: hsl(154, 70%, 45%);
+}
+
+/* ===== General Styling ===== */
+html {
+  scroll-padding-top: 70px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cream);
+  color: var(--text);
+}
+
+/* ===== Header ===== */
+header,
+footer {
+  text-align: center;
+  background-color: var(--maroon);
+  color: var(--cream);
+}
+
+header {
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+header p {
+  margin: 6px 0 0;
+  font-style: italic;
+}
+
+/* ===== Hero Section ===== */
+.intro {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background-color: var(--maroon);
+}
+
+.intro img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(35, 12, 12, 0.48);
+  z-index: 1;
+}
+
+.intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+  color: var(--cream);
+  z-index: 2;
+}
+
+.intro-text h2 {
+  margin-bottom: 15px;
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px #00000080;
+}
+
+.intro-text p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px #00000080;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--sand);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar-brand,
+.navbar .nav-link {
+  color: var(--maroon);
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.navbar-brand {
+  letter-spacing: 1px;
+}
+
+.navbar-brand:hover,
+.navbar .nav-link:hover {
+  color: var(--accent);
+}
+
+.navbar-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.navbar .cart {
+  font-size: 1.7rem;
+}
+
+/* Checkbox hack */
+.menu-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar-toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--maroon);
+  border-radius: 0.375rem;
+  background-color: var(--maroon);
+  cursor: pointer;
+}
+
+/* Mobile Navbar */
+.navbar-menu {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+}
+
+.menu-checkbox:checked ~ .navbar-menu {
+  display: flex;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+/* Desktop Navbar: 622px and above */
+@media (min-width: 622px) {
+  .navbar-toggler,
+  .menu-checkbox {
+    display: none;
+  }
+
+  .navbar-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1 1 auto;
+    width: auto;
+    padding-top: 0;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    width: auto;
+    gap: 1.5rem;
+  }
+}
+
+/* ===== Product Heading ===== */
+.category-title {
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  color: var(--maroon);
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 2px solid #e7c5b4;
+}
+
+/* =================================
+   CSS ONLY CATEGORY FILTER
+   ================================= */
+
+/* Filter container */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0 35px;
+}
+
+/* Hide radio circles */
+.category-filter input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Filter labels */
+.category-filter label {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid var(--line);
+  border-radius: 25px;
+  background-color: #ffffff;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.category-filter label:hover {
+  background-color: #e8f5ee;
+  border-color: var(--filter-accent);
+}
+
+/* Selected filter */
+.category-filter input[type="radio"]:checked + label {
+  background-color: var(--filter-accent);
+  color: #ffffff;
+  border-color: var(--filter-accent);
+}
+
+/* Keyboard focus */
+.category-filter input[type="radio"]:focus-visible + label {
+  outline: 3px solid var(--filter-accent);
+  outline-offset: 3px;
+}
+
+/* ===== CSS FILTERING LOGIC ===== */
+
+/* Chocolate filter */
+main:has(#filter-chocolate:checked) .product-item:not(.category-chocolate) {
+  display: none;
+}
+
+/* Fruit filter */
+main:has(#filter-fruit:checked) .product-item:not(.category-fruit) {
+  display: none;
+}
+
+/* Milk filter */
+main:has(#filter-milk:checked) .product-item:not(.category-milk) {
+  display: none;
+}
+
+/* Classic filter */
+main:has(#filter-classic:checked) .product-item:not(.category-classic) {
+  display: none;
+}
+
+/* Hide sections with no matching products */
+main:has(#filter-chocolate:checked) section:not(:has(.category-chocolate)),
+main:has(#filter-fruit:checked) section:not(:has(.category-fruit)),
+main:has(#filter-milk:checked) section:not(:has(.category-milk)),
+main:has(#filter-classic:checked) section:not(:has(.category-classic)) {
+  display: none;
+}
+
+/* All filter:
+   No hiding rule is needed.
+   All products appear when All is selected. */
+
+/* ===== Product Cards ===== */
+.product-card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 3px 10px #00000010;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 7px 18px #00000018;
+}
+
+.product-card > a {
+  display: block;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  min-height: 190px;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.product-info h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.product-info h3 a:hover {
+  color: var(--maroon);
+}
+
+.product-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.price {
+  color: var(--maroon);
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+
+.product-info button {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--maroon);
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.product-info button:hover {
+  background-color: var(--maroon-dark);
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 25px 15px;
+  margin: 8px 0;
+}
+
+footer h3 {
+  font-weight: bold;
+}
+
+/* =================================
+   TABLET AND MOBILE: BELOW 622px
+   ================================= */
+@media (max-width: 621px) {
+  header {
+    padding: 16px 10px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .intro {
+    height: 280px;
+  }
+
+  .intro-text h2 {
+    font-size: 1.7rem;
+  }
+
+  .intro-text p {
+    font-size: 0.95rem;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+  }
+
+  .product-card img {
+    height: 145px;
+  }
+
+  .product-info {
+    padding: 10px;
+    min-height: 180px;
+    gap: 8px;
+  }
+
+  .product-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .product-info p {
+    font-size: 0.82rem;
+  }
+
+  .product-info button {
+    padding: 8px 5px;
+    font-size: 0.85rem;
+  }
+
+  .category-filter {
+    gap: 8px;
+    margin: 20px 0 25px;
+  }
+
+  .category-filter label {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Extra Small Phones ===== */
+@media (max-width: 400px) {
+  .intro {
+    height: 230px;
+  }
+
+  .intro-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .intro-text p {
+    font-size: 0.85rem;
+  }
+
+  .product-card img {
+    height: 120px;
+  }
+
+  .product-info {
+    padding: 8px;
+  }
+
+  .product-info h3 {
+    font-size: 0.88rem;
+  }
+
+  .product-info p {
+    font-size: 0.78rem;
+  }
+
+  .category-filter {
+    gap: 6px;
+  }
+
+  .category-filter label {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+}
