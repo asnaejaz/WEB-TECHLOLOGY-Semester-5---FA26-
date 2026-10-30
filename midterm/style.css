@@ -132,7 +132,7 @@ header p {
   font-size: 1.7rem;
 }
 
-/* Checkbox hack */
+/* ===== Checkbox Hack ===== */
 .menu-checkbox {
   position: absolute;
   opacity: 0;
@@ -150,7 +150,7 @@ header p {
   cursor: pointer;
 }
 
-/* Mobile Navbar */
+/* ===== Mobile Navbar ===== */
 .navbar-menu {
   display: none;
   width: 100%;
@@ -167,7 +167,7 @@ header p {
   width: 100%;
 }
 
-/* Desktop Navbar: 622px and above */
+/* ===== Desktop Navbar: 622px and above ===== */
 @media (min-width: 622px) {
   .navbar-toggler,
   .menu-checkbox {
@@ -202,7 +202,7 @@ header p {
 
 /* =================================
    CSS ONLY CATEGORY FILTER
-   ================================= */
+================================= */
 
 /* Filter container */
 .category-filter {
@@ -282,10 +282,6 @@ main:has(#filter-milk:checked) section:not(:has(.category-milk)),
 main:has(#filter-classic:checked) section:not(:has(.category-classic)) {
   display: none;
 }
-
-/* All filter:
-   No hiding rule is needed.
-   All products appear when All is selected. */
 
 /* ===== Product Cards ===== */
 .product-card {
@@ -367,19 +363,139 @@ main:has(#filter-classic:checked) section:not(:has(.category-classic)) {
   background-color: var(--maroon-dark);
 }
 
-/* ===== Footer ===== */
-footer {
-  padding: 25px 15px;
-  margin: 8px 0;
+/* =================================
+   TASK 2: PRODUCT DETAIL PAGE
+   MOBILE DEFAULT LAYOUT
+================================= */
+
+/* Main Grid Container */
+.product-layout {
+  display: grid;
+
+  /* Named grid areas */
+  grid-template-areas:
+    "image"
+    "details"
+    "description";
+
+  /* One column on mobile */
+  grid-template-columns: 1fr;
+
+  gap: 30px;
+  align-items: start;
 }
 
-footer h3 {
+/* Product Image */
+.product-image {
+  grid-area: image;
+  min-width: 0;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Product Details */
+.product-details {
+  grid-area: details;
+
+  background-color: #ffffff;
+  padding: 25px;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+
+  box-shadow: 0 3px 10px #00000010;
+
+  min-width: 0;
+}
+
+.product-details h2 {
+  color: var(--maroon);
   font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-details .price {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-details .form-label {
+  font-weight: bold;
+}
+
+.product-details .form-select {
+  border-color: var(--line);
+}
+
+.product-details .btn {
+  background-color: var(--maroon);
+  color: #ffffff;
+  border-color: var(--maroon);
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.product-details .btn:hover {
+  background-color: var(--maroon-dark);
+  border-color: var(--maroon-dark);
+  color: #ffffff;
+}
+
+/* Product Description */
+.product-description {
+  grid-area: description;
+  min-width: 0;
+  line-height: 1.8;
+}
+
+.product-description h3 {
+  color: var(--maroon);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-description p {
+  color: var(--text-soft);
+  margin-bottom: 20px;
+}
+
+/* =================================
+   TABLET AND DESKTOP
+   BREAKPOINT = 622px
+================================= */
+
+@media (min-width: 622px) {
+  /* Change the Grid Layout */
+  .product-layout {
+    grid-template-areas:
+      "image details"
+      "description .";
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+    align-items: start;
+  }
+
+  /* Sticky Product Details Box */
+  .product-details {
+    position: sticky;
+    top: 92px;
+    align-self: start;
+  }
 }
 
 /* =================================
    TABLET AND MOBILE: BELOW 622px
-   ================================= */
+================================= */
+
 @media (max-width: 621px) {
   header {
     padding: 16px 10px;
@@ -437,6 +553,12 @@ footer h3 {
     padding: 8px 14px;
     font-size: 13px;
   }
+
+  /* Product details are not sticky on mobile */
+  .product-details {
+    position: static;
+    padding: 20px;
+  }
 }
 
 /* ===== Extra Small Phones ===== */
@@ -476,5 +598,13 @@ footer h3 {
   .category-filter label {
     padding: 7px 11px;
     font-size: 12px;
+  }
+
+  .product-details {
+    padding: 15px;
+  }
+
+  .product-details h2 {
+    font-size: 1.35rem;
   }
 }
