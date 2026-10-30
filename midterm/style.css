@@ -608,3 +608,52 @@ main:has(#filter-classic:checked) section:not(:has(.category-classic)) {
     font-size: 1.35rem;
   }
 }
+
+/* ===== Task 3: Search, Sort, Premium ===== */
+.tools {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.search-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 220px;
+  max-width: 360px;
+}
+
+.search-label {
+  color: var(--maroon);
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.tools input {
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 25px;
+  outline: none;
+}
+
+.tools input:focus {
+  border-color: var(--maroon);
+}
+
+.tools button {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--maroon);
+  color: #fff;
+  font-weight: bold;
+}
+
+.tools button:hover {
+  background-color: var(--maroon-dark);
+}

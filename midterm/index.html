@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <>
     <!-- Header -->
     <header>
       <h1>COCO BAR</h1>
@@ -104,6 +104,21 @@
         <input type="radio" name="category" id="filter-milk" />
         <label for="filter-milk">Milk</label>
       </div>
+
+      <!-- Search and Sort -->
+<div class="tools">
+  <div class="search-group">
+    <label for="search-box" class="search-label">Search Product</label>
+    <input
+      type="search"
+      id="search-box"
+      placeholder="Type a product name..."
+      autocomplete="off"
+    />
+  </div>
+
+  <button type="button" id="sort-price">Sort by price</button>
+</div>
 
       <!-- Cakes Section -->
       <section class="mb-5" id="Cakes">
@@ -258,6 +273,7 @@
           </div>
         </div>
       </section>
+      <p id="no-results" class="no-results" hidden>No products found</p>
     </main>
 
     <!-- Footer -->
@@ -266,5 +282,7 @@
       <p>Bake it. Cake it.</p>
       <p>&copy; 2026 Coco Bar. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
