@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COCO BAR | Bakery & Cafe</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>COCO BAR</h1>
+      <p>Bake it. Cake it.</p>
+    </header>
+
+    <section class="intro" id="About">
+      <img src="display.jpg" alt="Display of COCO BAR bakery treats" />
+
+      <div class="intro-text">
+        <h2>Something Sweet Awaits!</h2>
+        <p>Freshly baked treats, made with love.</p>
+      </div>
+    </section>
+
+    <nav class="navbar px-3 px-lg-5">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <img src="coco-bar.png" alt="COCO BAR Logo" />
+          <span>COCO BAR</span>
+        </a>
+
+        <!-- 1. Hidden Checkbox (Toggle Logic) -->
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+
+        <!-- 2. Hamburger Button (Label jo checkbox ko control kare ga) -->
+        <label for="menu-toggle" class="navbar-toggler">
+          <span class="navbar-toggler-icon"></span>
+        </label>
+
+        <!-- 3. Menu Links & Cart Container -->
+        <div class="navbar-menu" id="mainNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#About">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Cakes">Cakes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#CupCakes">Cupcakes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Contact">Contact</a>
+            </li>
+          </ul>
+
+          <a href="#menu" class="nav-link cart">
+            <i class="bi bi-cart3"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="menu" class="container py-5">
+      <section class="mb-5" id="Cakes">
+        <h2 class="category-title">Cakes</h2>
+
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <a href="chocolate-cake.html">
+                <img src="chocolate-cake.jfif" alt="Chocolate Cake" />
+              </a>
+              <div class="product-info">
+                <h3>
+                  <a href="chocolate-cake.html">Chocolate Cake</a>
+                </h3>
+                <p>Rich, moist and full of chocolate.</p>
+                <span class="price">Rs. 2500</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="strawberry-cake.jfif" alt="Strawberry Cake" />
+              <div class="product-info">
+                <h3>Strawberry Cake</h3>
+                <p>Sweet strawberries with soft cream.</p>
+                <span class="price">Rs. 2800</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="three-milk-cake.jfif" alt="Three Milk Cake" />
+              <div class="product-info">
+                <h3>Three Milk Cake</h3>
+                <p>Creamy milk-soaked bliss.</p>
+                <span class="price">Rs. 3000</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="black-forest-cake.jfif" alt="Black Forest Cake" />
+              <div class="product-info">
+                <h3>Black Forest Cake</h3>
+                <p>Chocolate-cherry rich indulgence.</p>
+                <span class="price">Rs. 3500</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-5" id="CupCakes">
+        <h2 class="category-title">Cupcakes</h2>
+
+        <div class="row g-4">
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="caramel-cupcake.jfif" alt="Caramel Cupcake" />
+              <div class="product-info">
+                <h3>Caramel Cupcake</h3>
+                <p>Golden buttery sweetness.</p>
+                <span class="price">Rs. 400</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="chocolate-cupcake.jfif" alt="Chocolate Cupcake" />
+              <div class="product-info">
+                <h3>Chocolate Cupcake</h3>
+                <p>Rich cocoa decadence.</p>
+                <span class="price">Rs. 450</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="vanilla-cupcake.jfif" alt="Vanilla Cupcake" />
+              <div class="product-info">
+                <h3>Vanilla Cupcake</h3>
+                <p>Classic smooth elegance.</p>
+                <span class="price">Rs. 350</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <article class="product-card">
+              <img src="red-velvet-cupcake.jpg" alt="Red Velvet Cupcake" />
+              <div class="product-info">
+                <h3>Red Velvet Cupcake</h3>
+                <p>Crimson velvet luxury.</p>
+                <span class="price">Rs. 500</span>
+                <button type="button">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="Contact">
+      <h3>COCO BAR</h3>
+      <p>Bake it. Cake it.</p>
+      <p>&copy; 2026 Coco Bar. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
